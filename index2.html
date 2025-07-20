@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Responsive Flexbox Cards</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 200vh;
+        position: relative;
+        background-color: white;
+      }
+      .container {
+        background-color: rgba(244, 247, 250, 0.623);
+        font-family: sans-serif;
+      }
+      .header-container {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 10px;
+        width: 100%;
+        height: 40vh;
+        align-items: center;
+        font-size: 50px;
+        background-color: rgba(174, 217, 247, 0.76);
+        border-bottom-right-radius: 200px;
+        color: rgb(2, 2, 43);
+        position: relative;
+      }
+      .habeeb-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .habeeb-pics {
+        height: 80%;
+        width: 20%;
+        border-radius: 50%;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .par {
+        font-size: 20px;
+        line-height: 1.5;
+      }
+      .About-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        min-height: 40vh;
+        margin-top: 20px;
+        background-color: rgb(234, 236, 238);
+      }
+      .skills {
+        width: 30%;
+        height: 80%;
+        padding: 50px;
+      }
+      .skills h2 {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+      .about-me {
+        flex-basis: 500px;
+        height: 80%;
+      }
+      .about-me h2 {
+        margin-bottom: 30px;
+        font-size: 30px;
+      }
+      .li-skill {
+        text-transform: uppercase;
+        font-size: 40px;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      .skills-type {
+        display: grid;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: repeat(3, 400px);
+        margin-top: 30px;
+        height: 50vh;
+        row-gap: 100px;
+        column-gap: 50px;
+        margin-top: 30px;
+      }
+      .skill {
+        margin: 0 10px;
+        text-align: center;
+        box-shadow: 10px -10px 40px 1px rgb(221, 218, 218);
+        border-top: solid 5px  rgb(15, 170, 15);
+        border-bottom: solid 5px  rgb(15, 170, 15);
+      }
+      .skill:hover{
+        transform: scale(1.1);
+      }
+      .img {
+        height: 100px;
+      }
+      .img-1 {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+      }
+      .img-1 p {
+        margin-bottom: 30px;
+      }
+      .Learn:link {
+        margin-top: 20px;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        padding: 10px 100px;
+        margin-bottom: 30px;
+        display: inline-block;
+        text-align: center;
+      }
+      .Learn:visited{
+        color:white;
+      }
+      .Learn:hover {
+        background-color: white;
+        color: black;
+        border: solid 3px black;
+      }
+      .Learn:active {
+        background-color: rgb(107, 156, 230);
+        color: white;
+        border: none;
+      }
+      .skill p {
+        line-height: 1.5;
+      }
+      .badge {
+        position: absolute;
+        right: 50px;
+        top: 30px;
+        background-color: rgb(240, 204, 47);
+        font-size: 20px;
+        border-radius: 50%;
+        padding: 10px;
+        z-index: 1;
+      }
+      .btn {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+      .square {
+        height: 90%;
+        width: 25%;
+        background-color: rgba(255, 223, 186, 0.7);
+        position: absolute;
+        top: 20px;
+        border-radius: 50%;
+        right: 320px;
+      }
+      a:link {
+        color: white;
+        font-size: 15px;
+        text-decoration: none;
+      }
+      .like {
+        position: fixed;
+        bottom: 30px;
+        right: 20px;
+        padding: 10px 30px;
+      }
+      .like::after {
+        content: "❤";
+        color: red;
+        font-size: 20px;
+        margin-right: 20px;
+      }
+      .like {
+        font-size: 20px;
+        word-spacing: 10px;
+        font-weight: 600;
+      }
+      .career-container {
+        width: 100%;
+        height: 600px;
+        display: grid;
+        grid-template-columns: repeat(3, 350px);
+        grid-template-rows: repeat(3, 1fr);
+        justify-content: space-around;
+        align-content: center;
+        margin-top: 20px;
+        text-align: center;
+        gap: 40px;
+      }
+      .aims {
+        grid-column: 1/-1;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 400;
+        margin-top: 60px;
+      }
+      .img-2 {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
+      }
+      .img-user {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .user-career {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+      }
+      .career-cont {
+        box-shadow: 10px -10px 20px 5px rgb(201, 198, 198);
+        line-height: 1.2;
+      }
+      footer {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        height: 200px;
+        margin-top: 20px;
+        align-items: center;
+      }
+      .nav-footer a:link {
+        color: black;
+      }
+      .social-icons a:link {
+        color: black;
+      }
+      .icons svg {
+        width: 40px;
+      }
+      .nav-footer a:link {
+        font-size: 20px;
+        font-weight: 400;
+      }
+      footer p {
+        font-size: 20px;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="like">like</button>
+    <div class="container">
+      <div class="badge">💻</div>
+      <header class="header-container">
+        <div class="name">
+          <h1>Habeeb</h1>
+          <p>The fontend developer</p>
+        </div>
+        <div class="square"></div>
+        <div class="habeeb-pics">
+          <img
+            src="./premium_photo-1661371243525-d02768a7feee.jpeg"
+            alt="habeeb-pics"
+            class="habeeb-img"
+          />
+        </div>
+      </header>
+      <section class="About-container">
+        <div class="about-me">
+          <h2>About me</h2>
+          <p class="par">
+            I'm a passionate and dedicated front-end web developer with a strong
+            foundation in HTML, CSS, and JavaScript. I enjoy creating clean,
+            responsive, and user-friendly websites that bring ideas to life on
+            the web. I continuously challenge myself to improve my skills
+            through hands-on projects, exploring new design patterns, and
+            learning modern development techniques.
+          </p>
+        </div>
+        <div class="skills">
+          <h2>Skills</h2>
+          <ul class="li-skill">
+            <li>Html</li>
+            <li>Css</li>
+            <li>Js</li>
+          </ul>
+        </div>
+      </section>
+      <section class="skills-type">
+        <div class="skill">
+          <div class="img-1">
+            <img src="./html-removebg-preview.png" alt="html" class="img" />
+          </div>
+          <p>
+            HTML (HyperText Markup Language) is the standard language used to
+            create and structure content on the web. It uses tags to define
+            elements like headings, paragraphs, images, links, and more. HTML
+            forms the foundation of every webpage, allowing browsers to display
+            text, images, and other content in a structured way.
+          </p>
+          <div class="btn">
+          <a href="#" class="Learn">Learn more</a>
+          </div>
+        </div>
+        <div class="skill">
+          <div class="img-1">
+            <img src="./css-removebg-preview.png" alt="html" class="img" />
+          </div>
+          <p>
+            CSS (Cascading Style Sheets) is the language used to style and
+            design HTML elements on a webpage. It controls the layout, colors,
+            fonts, spacing, and responsiveness of a site. With CSS, you can make
+            websites look beautiful, organized, and visually appealing across
+            all screen sizes.
+          </p>
+          <div class="btn">
+            <a href="#" class="Learn">Learn more</a></button>
+          </div>
+        </div>
+        <div class="skill">
+          <div class="img-1">
+            <img src="./js-removebg-preview.png" alt="html" class="img" />
+          </div>
+          <p>
+            JavaScript is a powerful programming language used to make websites
+            interactive and dynamic. It allows you to add features like sliders,
+            buttons, forms, animations, and real-time updates. JavaScript works
+            alongside HTML and CSS to bring life and functionality to web pages.
+          </p>
+          <div class="btn">
+            <a href="#" class="Learn">Learn more</a>
+          </div>
+        </div>
+      </section>
+      <section class="career-container">
+        <div class="aims">
+          <h2>Our Goals</h2>
+          <p>
+            I aim to become a top-tier  developer and use tech to solve
+            real-world problems.
+          </p>
+        </div>
+        <div class="career-cont">
+          <div class="img-2">
+            <img
+              src="./premium_photo-1661371243525-d02768a7feee.jpeg"
+              alt="habeeb"
+              class="img-user"
+            />
+          </div>
+          <h3>A fontend developer</h3>
+          <p class="user-career">
+            Habeeb — crafting clean and responsive web experiences. Habeeb is a
+            creative front-end developer with a passion for design and code.
+            Turning ideas into beautiful websites — that's Habeeb.
+          </p>
+          <a href="#" class="Learn">Learn more</a></button>
+        </div>
+
+        <div class="career-cont">
+          <div class="img-2">
+            <img src="./amina.jpeg" alt="amina" class="img-user" />
+          </div>
+          <h3>A UI/UX designer</h3>
+          <p class="user-career">
+            Meet Amina — a passionate UI/UX designer who brings simplicity,
+            clarity, and creativity into every project. Her goal is to design
+            interfaces that not only look great but also feel natural to users.
+          </p>
+          <a href="#" class="Learn">Learn more</a>
+        </div>
+        <div class="career-cont">
+          <div class="img-2">
+            <img src="./Zara.jpeg" alt="zara" class="img-user" />
+          </div>
+          <h3>A backend developer</h3>
+          <p class="user-career">
+            Zara works behind the screen, making sure apps are fast, secure, and
+            scalable. As a backend developer, she connects the frontend to the
+            database with well-structured code and smart problem-solving.
+          </p>
+          <a href="#" class="Learn">Learn more</a>
+        </div>
+      </section>
+      <footer>
+        <p>&copy; 2025 Zakariyah Opeyemi. All rights reserved.</p>
+        <p>Contact: 07089131934</p>
+        <div class="social-icons">
+          <a href="#" class="icons"
+            ><svg
+              width="68px"
+              height="68px"
+              viewBox="0 0 24 24"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              xmlns:cc="http://creativecommons.org/ns#"
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <g transform="translate(0 -1028.4)">
+                  <g>
+                    <path
+                      d="m4 1031.4c-1.1046 0-2 0.9-2 2v16c0 1.1 0.8954 2 2 2h16c1.105 0 2-0.9 2-2v-16c0-1.1-0.895-2-2-2h-16z"
+                      fill="#1499ca"
+                    ></path>
+                    <path
+                      d="m4 2c-1.1046 0-2 0.8954-2 2v16c0 1.105 0.8954 2 2 2h16c1.105 0 2-0.895 2-2v-16c0-1.1046-0.895-2-2-2h-16z"
+                      transform="translate(0 1028.4)"
+                      fill="#1ab2e8"
+                    ></path>
+                    <path
+                      fill="#1499ca"
+                      d="m15.474 1036.5c-0.811 0-1.532 0.2-2.107 0.8-0.569 0.6-0.835 1.3-0.835 2.1 0 0.2 0.024 0.4 0.072 0.7-1.198-0.1-2.325-0.4-3.378-0.9-1.0475-0.6-1.9556-1.3-2.6882-2.2-0.2664 0.4-0.3996 0.9-0.3996 1.5 0 0.5 0.1272 1 0.3633 1.4s0.5449 0.7 0.9445 1c-0.4723 0-0.8961-0.1-1.3078-0.4v0.1c0 0.7 0.2119 1.3 0.6539 1.9 0.448 0.5 1.0292 0.8 1.7073 1-0.2543 0-0.5388 0.1-0.7992 0.1-0.1695 0-0.3451 0-0.5448-0.1 0.1876 0.6 0.5509 1.1 1.0534 1.5s1.0716 0.5 1.7074 0.6c-1.0656 0.8-2.3068 1.2-3.669 1.2h-0.6902c1.3622 0.8 2.8637 1.3 4.504 1.3 1.042 0 2.029-0.2 2.943-0.5s1.677-0.8 2.325-1.3c0.648-0.6 1.205-1.2 1.671-1.9 0.472-0.8 0.823-1.5 1.053-2.3s0.363-1.6 0.363-2.4c0-0.1-0.03-0.3-0.036-0.4 0.575-0.4 1.084-0.8 1.49-1.4-0.564 0.2-1.145 0.3-1.708 0.4 0.636-0.4 1.084-0.9 1.308-1.6-0.581 0.3-1.193 0.6-1.853 0.7-0.581-0.6-1.295-0.9-2.143-0.9z"
+                    ></path>
+                    <path
+                      fill="#ecf0f1"
+                      d="m15.474 1035.5c-0.811 0-1.531 0.2-2.107 0.8-0.569 0.6-0.835 1.3-0.835 2.1 0 0.2 0.024 0.4 0.073 0.7-1.199-0.1-2.325-0.4-3.3788-0.9-1.0474-0.6-1.9556-1.3-2.6882-2.2-0.2664 0.4-0.3995 0.9-0.3995 1.5 0 0.5 0.1271 1 0.3632 1.4s0.5449 0.7 0.9445 1c-0.4722 0-0.8961-0.1-1.3077-0.4v0.1c0 0.7 0.2119 1.3 0.6538 1.9 0.448 0.5 1.0293 0.8 1.7074 1-0.2543 0-0.5389 0.1-0.7992 0.1-0.1695 0-0.3451 0-0.5449-0.1 0.1877 0.6 0.5509 1.1 1.0534 1.5 0.5026 0.4 1.0717 0.5 1.7074 0.6-1.0656 0.8-2.3067 1.2-3.669 1.2h-0.6902c1.3623 0.8 2.8637 1.3 4.5048 1.3 1.041 0 2.028-0.2 2.942-0.5s1.677-0.8 2.325-1.3c0.648-0.6 1.205-1.2 1.671-1.9 0.472-0.8 0.823-1.5 1.053-2.3 0.231-0.8 0.364-1.6 0.364-2.4 0-0.1-0.031-0.3-0.037-0.4 0.576-0.4 1.084-0.8 1.49-1.4-0.563 0.2-1.145 0.3-1.708 0.4 0.636-0.4 1.084-0.9 1.308-1.6-0.581 0.3-1.193 0.6-1.852 0.7-0.582-0.6-1.296-0.9-2.144-0.9z"
+                    ></path>
+                  </g>
+                </g>
+              </g></svg
+          ></a>
+          <a href="#" class="icons"
+            ><svg
+              width="64px"
+              height="64px"
+              viewBox="0 0 14 14"
+              role="img"
+              focusable="false"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#000000"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <radialGradient
+                  id="a"
+                  cx="130.802"
+                  cy="895.86902"
+                  r="968.776"
+                  gradientTransform="matrix(.539 -.842 .618 .395 -492.923 652.145)"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0" stop-color="#F9ED32"></stop>
+                  <stop offset=".53" stop-color="#FF4700"></stop>
+                  <stop offset=".72" stop-color="#EE2A7B"></stop>
+                  <stop offset="1" stop-color="#002AFF"></stop>
+                </radialGradient>
+                <path
+                  fill="url(#a)"
+                  d="M43.7 180h524.6c24.2 0 43.7 19.6 43.7 43.7v524.6c0 24.2-19.6 43.7-43.7 43.7H43.7C19.6 792 0 772.4 0 748.3V223.7C0 199.6 19.6 180 43.7 180z"
+                  transform="translate(1.000001 -2.5294102) scale(.0196)"
+                ></path>
+                <g
+                  fill="#ffffff"
+                  stroke="#ffffff"
+                  stroke-miterlimit="10"
+                  transform="translate(1.000001 -2.5294102) scale(.0196)"
+                >
+                  <path
+                    stroke-width="8"
+                    d="M413.9 721.5H198.1c-70.3 0-127.6-57.2-127.6-127.6V378.1c0-70.3 57.2-127.6 127.6-127.6H414c70.3 0 127.6 57.2 127.6 127.6V594c-.1 70.3-57.3 127.5-127.7 127.5zM198.1 289.8c-48.7 0-88.3 39.6-88.3 88.3V594c0 48.7 39.6 88.3 88.3 88.3H414c48.7 0 88.3-39.6 88.3-88.3V378.1c0-48.7-39.6-88.3-88.3-88.3H198.1zm107.9 314c-64.9 0-117.8-52.8-117.8-117.8 0-64.9 52.8-117.8 117.8-117.8 64.9 0 117.8 52.8 117.8 117.8 0 64.9-52.9 117.8-117.8 117.8zm0-196.3c-43.3 0-78.5 35.2-78.5 78.5s35.2 78.5 78.5 78.5 78.5-35.2 78.5-78.5-35.2-78.5-78.5-78.5z"
+                  ></path>
+                  <circle
+                    cx="427.70001"
+                    cy="364.29999"
+                    r="25"
+                    stroke-width="9"
+                  ></circle>
+                </g>
+              </g></svg
+          ></a>
+          <a href="#" class="icons"
+            ><svg
+              fill="#000000"
+              height="64px"
+              width="64px"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 24 24"
+              xml:space="preserve"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <g id="social-linkedin">
+                  <path
+                    d="M22.2,0H1.8C0.8,0,0,0.8,0,1.8v20.5c0,1,0.8,1.8,1.8,1.8h20.5c1,0,1.8-0.8,1.8-1.8V1.8C24,0.8,23.2,0,22.2,0z M7.2,20.4 H3.5V9h3.6V20.4z M5.3,7.4c-1.1,0-2.1-0.9-2.1-2.1s0.9-2.1,2.1-2.1s2.1,0.9,2.1,2.1S6.5,7.4,5.3,7.4z M20.5,20.5h-3.6v-6.3 c0-1.8-0.8-2.4-1.8-2.4c-1.1,0-2.1,0.8-2.1,2.5v6.2H9.3V9h3.5v1.6h0c0.3-0.7,1.6-1.9,3.4-1.9c2,0,4.2,1.2,4.2,4.7V20.5z"
+                  ></path>
+                </g>
+              </g></svg
+          ></a>
+        </div>
+        <nav class="nav-footer">
+          <a href="#home">Home</a> | <a href="#projects">Projects</a> |
+          <a href="#contact">Contact</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
